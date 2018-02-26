@@ -93,12 +93,17 @@ public class Hand implements Comparable<Hand>{
 
   @Override
   public int compareTo(Hand other) {
-    if (other.isBlackjack()&& !this.isBlackjack()) {
-      return (-1);
-    } else if (this.isBlackjack() && !other.isBlackjack()) {
-      return (1);
+//    if (other.isBlackjack()&& !this.isBlackjack()) {
+//      return (-1);
+//    } else if (this.isBlackjack() && !other.isBlackjack()) {
+//      return (1);
+//    }
+    int result = Boolean.compare(isBlackjack(), other.isBlackjack());
+    if (result == 0) {
+      result = Integer.compare(this.value(), other.value);
     }
-    return Integer.compare(this.value(), other.value);
+//    return Integer.compare(this.value(), other.value);
+    return result;
   }
 }
 
